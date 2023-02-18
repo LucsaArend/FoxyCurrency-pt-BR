@@ -12,6 +12,8 @@ Nos seus inputs adicione a seguinte propriedade data-type="currency", lembre-se 
 
 Feito isso, tudo já deve estar funcionando.
 
+Caso tenha carregamento dinamico, lembre de registrar os eventos manualmente com FA_Currency_Register()
+
 ## Funcionamento
 
 Apos o carregamento da pagina, o script ira adicionar um evento para sempre que um input for digitado formatar o núemro para R$ 9,00 ou R$ 1.254,00

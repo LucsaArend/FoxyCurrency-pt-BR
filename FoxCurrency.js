@@ -1,6 +1,14 @@
 // Jquery Dependency
 // A $( document ).ready() block.
 $( document ).ready(function() {
+    registerFACurrencyEvents();
+});
+
+function FA_Currency_Register(){
+    registerFACurrencyEvents();
+}
+
+function registerFACurrencyEvents() {
     $("input[data-type='currency']").on({
         keyup: function() {
             formatCurrency($(this));
@@ -12,7 +20,7 @@ $( document ).ready(function() {
             formatCurrency($(this));
         }
     });
-});
+}
 
 function foxCurrencyFloat(prInputID) {
     let value = $('#'+prInputID).val();
