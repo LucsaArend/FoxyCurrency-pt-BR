@@ -17,7 +17,10 @@ function registerFACurrencyEvents() {
             formatCurrency($(this), "blur");
         },
         onfocusOut: function() {
-            formatCurrency($(this));
+            formatCurrency($(this), "fix2");
+        },
+        focusout: function() {
+            formatCurrency($(this), "fix2");
         }
     });
 }
@@ -42,7 +45,7 @@ function getFoxAsomeNumbers(n) {
     // format number 1000000 to 123456
     return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, "")
 }
-function formatCurrency(input, blur) {
+function formatCurrency(input, prAux) {
     // appends $ to value, validates decimal side
     // and puts cursor back in right position.
 
@@ -67,9 +70,14 @@ function formatCurrency(input, blur) {
     } else {
         number = formatNumber(input_val);
     }
-
     // send updated string to input
-    input.val('R$ ' + number);
+    if (prAux === "fix2") {
+        if (input_val.indexOf(",") <= 0) {
+            input.val('R$ ' + number + ',00');
+        }
+    } else {
+        input.val('R$ ' + number);
+    }
 
     // original length
     let original_len = input_val.length;
