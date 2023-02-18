@@ -71,7 +71,7 @@ function formatCurrency(input, prAux) {
         number = formatNumber(input_val);
     }
     // send updated string to input
-    if (prAux === "fix2") {
+    if ((prAux === "fix2") && number.length > 0) {
         if (input_val.indexOf(",") <= 0) {
             input.val('R$ ' + number + ',00');
         }
